@@ -259,155 +259,82 @@ This workflow runs on cron schedule or when the user invokes `/ai`.
 
 Read `~/.follow-builders/config.json` for user preferences.
 
-### Step 2: Fetch Content
+### Step 2: Run the prepare script
 
-Fetch the two central feeds — pre-built JSON files updated every 6 hours.
-Users don't need any API keys.
-
-```bash
-curl -sf "https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-x.json" -o /tmp/fb-feed-x.json
-curl -sf "https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-podcasts.json" -o /tmp/fb-feed-podcasts.json
-```
-
-If either fetch fails, skip that section and deliver whatever you got.
-
-- `feed-x.json` (~25KB): builders with their recent tweets
-- `feed-podcasts.json` (~120KB): 1 podcast episode with full transcript
-
-**IMPORTANT — Error Handling:**
-- If the JSON has an `"errors"` array, those are non-fatal warnings. IGNORE THEM.
-- Just use whatever content is in the `podcasts` and `x` arrays.
-- NEVER try to fetch content yourself from X or YouTube. The feed has everything.
-
-### Step 3: Check for Content
-
-Look at the `stats` field in the JSON output:
-- If `newPodcastEpisodes` is 0 AND `newXBuilders` is 0, tell the user:
-  "No new updates from your builders today. Check back tomorrow!"
-  Then stop.
-- If there IS content (even just 1 podcast or 1 builder), proceed to remix.
-  It does not matter if some sources failed — partial content is fine.
-
-### Step 4: Remix Content
-
-First, try to fetch the latest prompt files from GitHub (so users always get
-the most up-to-date remix instructions without reinstalling):
+This script handles ALL data fetching deterministically — feeds, prompts, config.
+You do NOT fetch anything yourself.
 
 ```bash
-curl -sf "https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/prompts/digest-intro.md" -o /tmp/fb-digest-intro.md && \
-curl -sf "https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/prompts/summarize-podcast.md" -o /tmp/fb-summarize-podcast.md && \
-curl -sf "https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/prompts/summarize-tweets.md" -o /tmp/fb-summarize-tweets.md && \
-curl -sf "https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/prompts/translate.md" -o /tmp/fb-translate.md
+cd ${CLAUDE_SKILL_DIR}/scripts && node prepare-digest.js 2>/dev/null
 ```
 
-If the curl commands succeed, read prompts from `/tmp/fb-*.md`.
-If they fail (offline, etc.), fall back to the local copies in `${CLAUDE_SKILL_DIR}/prompts/`.
+The script outputs a single JSON blob with everything you need:
+- `config` — user's language and delivery preferences
+- `podcasts` — podcast episodes with full transcripts
+- `x` — builders with their recent tweets (text, URLs, bios)
+- `prompts` — the remix instructions to follow
+- `stats` — counts of episodes and tweets
+- `errors` — non-fatal issues (IGNORE these)
 
-The prompt files to use:
-- `digest-intro.md` for overall framing
-- `summarize-podcast.md` for each podcast episode
-- `summarize-tweets.md` for each builder's tweets
+If the script fails entirely (no JSON output), tell the user to check their
+internet connection. Otherwise, use whatever content is in the JSON.
 
-### Step 4a: Remix Podcast Content
+### Step 3: Check for content
 
-The `feed-podcasts.json` contains 1 podcast episode with its full transcript
-already included. The `podcasts` array has one object like this:
-```json
-{
-  "name": "Latent Space",        ← use THIS as the podcast name
-  "title": "Episode Title Here", ← use THIS as the episode title
-  "url": "https://youtube.com/watch?v=xxx", ← use THIS as the link
-  "transcript": "..."            ← summarize THIS transcript
-}
-```
+If `stats.podcastEpisodes` is 0 AND `stats.xBuilders` is 0, tell the user:
+"No new updates from your builders today. Check back tomorrow!" Then stop.
 
-1. Read the podcast object
-2. Check if the episode is AI-relevant (read the title). If not, skip it.
-3. If relevant, summarize its `transcript` using the summarize-podcast prompt
-4. Use the `name`, `title`, and `url` from the JSON — NOT from the transcript
+### Step 4: Remix content
 
-**NEVER** guess which podcast a transcript belongs to by reading the transcript.
-Always use the `name` field from the JSON object.
+**Your ONLY job is to remix the content from the JSON.** Do NOT fetch anything
+from the web, visit any URLs, or call any APIs. Everything is in the JSON.
 
-### Step 4b: Remix X/Twitter Content
+Read the prompts from the `prompts` field in the JSON:
+- `prompts.digest_intro` — overall framing rules
+- `prompts.summarize_podcast` — how to remix podcast transcripts
+- `prompts.summarize_tweets` — how to remix tweets
+- `prompts.translate` — how to translate to Chinese
 
-The feed's `x` array contains builders with their recent tweets already fetched:
-```json
-{
-  "name": "Aaron Levie",
-  "handle": "levie",
-  "bio": "ceo @box - your business lives in content. unleash it with AI",
-  "tweets": [
-    {
-      "text": "The actual tweet text...",
-      "url": "https://x.com/levie/status/123456",
-      "likes": 200,
-      "createdAt": "2026-03-15T..."
-    }
-  ]
-}
-```
+**Podcast:** The `podcasts` array has at most 1 episode. If present:
+1. Check the title — skip if not AI-relevant
+2. Summarize its `transcript` using `prompts.summarize_podcast`
+3. Use `name`, `title`, and `url` from the JSON object — NOT from the transcript
 
-Process each builder one at a time:
-1. Read ONE builder object from the `x` array
-2. Use their `bio` field to describe their role accurately (e.g. "Box CEO Aaron Levie")
-3. Summarize their `tweets` using the summarize-tweets prompt
-4. Use the `url` from EACH tweet — every tweet must have its link
-5. Move to the next builder. Repeat.
+**Tweets:** The `x` array has builders with tweets. Process one at a time:
+1. Use their `bio` field for their role (e.g. bio says "ceo @box" → "Box CEO Aaron Levie")
+2. Summarize their `tweets` using `prompts.summarize_tweets`
+3. Every tweet MUST include its `url` from the JSON
+
+Assemble the digest following `prompts.digest_intro`.
 
 **ABSOLUTE RULES:**
+- NEVER invent or fabricate content. Only use what's in the JSON.
+- Every piece of content MUST have its URL. No URL = do not include.
+- Do NOT guess job titles. Use the `bio` field or just the person's name.
+- Do NOT visit x.com, search the web, or call any API.
 
-1. **NEVER invent, fabricate, or guess tweet content.** Only include tweets
-   that are in the feed JSON. If a builder has no tweets in the feed, skip them.
+### Step 5: Apply language
 
-2. **Every tweet MUST have its URL** from the `url` field in the JSON.
-   No URL = do not include.
+Read `config.language` from the JSON:
+- **"en":** Entire digest in English.
+- **"zh":** Entire digest in Chinese. Follow `prompts.translate`.
+- **"bilingual":** Each section in English, then Chinese below it.
 
-3. **Use the `bio` field for the author's current role.** Do NOT guess job titles.
-   If the bio says "ceo @box" write "Box CEO Aaron Levie."
-   If the bio is empty, just use their name.
-
-4. **Do NOT visit x.com, search the web, or call any API for tweets.**
-   Everything you need is already in the feed JSON.
-
-Then assemble the full digest using the digest-intro prompt.
-
-### Step 5: Apply Language
-
-**You MUST check the user's language preference in config.json and follow it exactly.**
-Do NOT mix languages. Do NOT default to English if the user chose Chinese.
-
-Read `config.json` for the `language` field:
-- **"en":** The ENTIRE digest must be in English. No Chinese anywhere.
-- **"zh":** The ENTIRE digest must be in Chinese. Read the translate.md prompt
-  (from `/tmp/fb-translate.md` if fetched, otherwise
-  `${CLAUDE_SKILL_DIR}/prompts/translate.md`) and translate everything.
-  Keep proper nouns, technical terms, and URLs in English.
-- **"bilingual":** Each section appears TWICE — first in English, then in Chinese
-  directly below it, separated by a blank line. Both versions must be complete.
-
-**If the user's config says "zh", your output must be entirely in Chinese.
-If it says "en", your output must be entirely in English.
-Do NOT ignore this setting.**
+**Follow this setting exactly. Do NOT mix languages.**
 
 ### Step 6: Deliver
 
-Check the `delivery.method` in config.json:
+Read `config.delivery.method` from the JSON:
 
 **If "telegram" or "email":**
-Save the formatted digest to a temp file, then run the delivery script:
 ```bash
-echo '<digest text>' > /tmp/fb-digest.txt
+echo '<your digest text>' > /tmp/fb-digest.txt
 cd ${CLAUDE_SKILL_DIR}/scripts && node deliver.js --file /tmp/fb-digest.txt 2>/dev/null
 ```
-
-The delivery script reads the user's config and sends via the right channel.
 If delivery fails, show the digest in the terminal as fallback.
 
 **If "stdout" (default):**
-Just output the digest directly. The platform handles delivery:
-- OpenClaw routes it to the user's messaging channel
-- Claude Code displays it in the terminal
+Just output the digest directly.
 
 ---
 
