@@ -1,7 +1,138 @@
 {
-  "generatedAt": "2026-03-22T18:31:12.357Z",
+  "generatedAt": "2026-03-22T18:47:10.753Z",
   "lookbackHours": 24,
   "x": [
+    {
+      "source": "x",
+      "name": "Peter Yang",
+      "handle": "petergyang",
+      "bio": "I share extremely practical AI tutorials and interviews | Join 140K+ readers at https://t.co/XYKTmGVH14 | Product at Roblox",
+      "tweets": [
+        {
+          "id": "2035725826315170155",
+          "text": "Also available on:\n\nSpotify: https://t.co/YJbSn9eKmz\n\nApple: https://t.co/shNRmPP2Wb\n\nNewsletter: https://t.co/3bvmeErlio",
+          "createdAt": "2026-03-22T14:30:33.000Z",
+          "url": "https://x.com/petergyang/status/2035725826315170155",
+          "likes": 2,
+          "retweets": 1,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2035725814357279117",
+          "text": "A designer who can ship code is one of the most valuable hires in tech today.\n\nHere's my new episode with @felixleezd (CEO of @ADPList) where he showed me how to use Claude Code and Figma MCP to go from:\n\n✅ Figma → Code: Design to website in 15 min\n✅ Code → Figma: App back to editable design\n\nFelix also demoed a few apps he's designed and built in Claude Code, including a 3D globe website and a landing page analyzer.\n\nSome takeaways from Felix:\n\n1. Stop pasting screenshots into Claude Code. Instead, use Figma MCP to pull in all your assets, icons, and images automatically.\n\n2. You can use the same MCP to convert code back into editable Figma layers to explore more variations.\n\n3. An underrated way to build: Use FigJam to plan a flowchart of your app first, then paste the link into Claude Code with the MCP.\n\n📌 Watch now: https://t.co/rIDCvPJoN9\n\nThanks to our sponsors:\n\n@Replit: Plan, design, and build with AI agents https://t.co/w6kab0zMqN\n\n@linear: The AI agent platform for modern teams https://t.co/lI40xrrDsr",
+          "createdAt": "2026-03-22T14:30:30.000Z",
+          "url": "https://x.com/petergyang/status/2035725814357279117",
+          "likes": 119,
+          "retweets": 17,
+          "replies": 17,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2035564345430872095",
+          "text": "What is your preferred interface/process to switch between Claude and Codex? \n\nComposer? Cursor? Terminal? https://t.co/jFhOmoaVpR",
+          "createdAt": "2026-03-22T03:48:53.000Z",
+          "url": "https://x.com/petergyang/status/2035564345430872095",
+          "likes": 139,
+          "retweets": 2,
+          "replies": 74,
+          "isQuote": true,
+          "quotedTweetId": "2035529405540585899"
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Nan Yu",
+      "handle": "thenanyu",
+      "bio": "head of product @linear",
+      "tweets": [
+        {
+          "id": "2035562680623272312",
+          "text": "https://t.co/seaTPamh7U",
+          "createdAt": "2026-03-22T03:42:16.000Z",
+          "url": "https://x.com/thenanyu/status/2035562680623272312",
+          "likes": 1,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": true,
+          "quotedTweetId": "2035387292311769278"
+        },
+        {
+          "id": "2035540228983648311",
+          "text": "🤔 \nhttps://t.co/7XyoRRrHoa",
+          "createdAt": "2026-03-22T02:13:03.000Z",
+          "url": "https://x.com/thenanyu/status/2035540228983648311",
+          "likes": 0,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": true,
+          "quotedTweetId": "2035533726319357956"
+        },
+        {
+          "id": "2035534048940958015",
+          "text": "It is indeed crazy! considering how many more startups have been funded, the fact that survival rates didn’t drop off a cliff is remarkable https://t.co/AfnvelfNs6 https://t.co/8c73SqFYa7",
+          "createdAt": "2026-03-22T01:48:30.000Z",
+          "url": "https://x.com/thenanyu/status/2035534048940958015",
+          "likes": 27,
+          "retweets": 0,
+          "replies": 3,
+          "isQuote": true,
+          "quotedTweetId": "2035432705731551339"
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Thariq",
+      "handle": "trq212",
+      "bio": "Claude Code @anthropicai.   prev YC W20, mit media lab. \n\ntowards machines of loving grace",
+      "tweets": [
+        {
+          "id": "2035579288724947380",
+          "text": "been meaning to write more longform on specs, but in the meantime this post is still good https://t.co/eY2RKNgPyT",
+          "createdAt": "2026-03-22T04:48:16.000Z",
+          "url": "https://x.com/trq212/status/2035579288724947380",
+          "likes": 37,
+          "retweets": 2,
+          "replies": 3,
+          "isQuote": true,
+          "quotedTweetId": "2005315275026260309"
+        },
+        {
+          "id": "2035491380923916506",
+          "text": "setting this up is so fun, need to figure out a way to stream the dev process without getting instantly owned https://t.co/zIDKIJqndG",
+          "createdAt": "2026-03-21T22:58:57.000Z",
+          "url": "https://x.com/trq212/status/2035491380923916506",
+          "likes": 492,
+          "retweets": 9,
+          "replies": 76,
+          "isQuote": true,
+          "quotedTweetId": "2035086678977912994"
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Aaron Levie",
+      "handle": "levie",
+      "bio": "ceo @box - your business lives in content. unleash it with AI",
+      "tweets": [
+        {
+          "id": "2035762343502836020",
+          "text": "We are so unbelievably early with agents right now. The majority of companies aren’t even using coding agents at scale, let alone for the rest of knowledge work. We’re still mostly in the chatbot era of work for most of AI right now. \n\nDiffusion of tech takes time, even in the most breakneck of markets, because there are major workflows that need to be reinvented, any regulated or large business has huge governance processes for deploying new tech or agents, data needs to get into well-organized environments, and there’s technical literacy that needs to be established. All things that get solved, but takes time nonetheless.\n\nA point of comparison for technology diffusion: in 2010, a time by which every person in silicon valley knew that cloud was the future, AWS revenue was $500 million, Azure had only launched that year, and GCP was called Google App Engine. By 2025, these 3 platforms generated around $225 billion in revenue. And that’s only about 60% of the cloud market.\n\nSo from the moment the tech industry saw the future of cloud to today, the market is nearly 1,000 times bigger. And it’s still growing at an insane rate. \n\nThe same will happen for agents. Coding agents are like the early days of cloud computing when developers got on board for initial use cases. Then came the bigger workloads. This gives you a sense for how early we actually are in this transformation.",
+          "createdAt": "2026-03-22T16:55:39.000Z",
+          "url": "https://x.com/levie/status/2035762343502836020",
+          "likes": 216,
+          "retweets": 27,
+          "replies": 43,
+          "isQuote": true,
+          "quotedTweetId": "2035607979932991916"
+        }
+      ]
+    },
     {
       "source": "x",
       "name": "Garry Tan",
@@ -9,24 +140,223 @@
       "bio": "President & CEO @ycombinator —Founder https://t.co/7aoJjp1iIK—designer/engineer who helps founders—SF Dem accelerating the boom loop—haters not allowed in my sauna",
       "tweets": [
         {
-          "id": "2035741166805635577",
-          "text": "Weird realization: The best AI coding is in the morning when you are fresh from a night full of dreaming about latent space. Sleep early. Wake up early. The best ideas are in the morning. \n\nIt's not just about raw token maxxing. It is about teaching the machines the right abstraction that comes out of your own personal experience and the synthesis that comes from a good night's sleep.",
-          "createdAt": "2026-03-22T15:31:31.000Z",
-          "url": "https://x.com/garrytan/status/2035741166805635577",
-          "likes": 775,
-          "retweets": 40,
-          "replies": 129,
+          "id": "2035789915599053198",
+          "text": "The SF Standard is hiring. They have done a lot to bring a new voice to SF that is more common sense and I admire them for it. \n\nhttps://t.co/ImbRbQpcBg",
+          "createdAt": "2026-03-22T18:45:13.000Z",
+          "url": "https://x.com/garrytan/status/2035789915599053198",
+          "likes": 2,
+          "retweets": 1,
+          "replies": 2,
           "isQuote": false,
           "quotedTweetId": null
         },
         {
-          "id": "2035739261929140672",
-          "text": "GStack slowly climbing to level 7.1 or so on the 'autonomous software factory' - one plan mode and PR at a time https://t.co/k0YXBcqSBY",
-          "createdAt": "2026-03-22T15:23:56.000Z",
-          "url": "https://x.com/garrytan/status/2035739261929140672",
-          "likes": 107,
-          "retweets": 4,
-          "replies": 23,
+          "id": "2035784465415577977",
+          "text": "Ok bro I have some news for you https://t.co/62d1knsWwY",
+          "createdAt": "2026-03-22T18:23:34.000Z",
+          "url": "https://x.com/garrytan/status/2035784465415577977",
+          "likes": 32,
+          "retweets": 1,
+          "replies": 9,
+          "isQuote": true,
+          "quotedTweetId": "2035555974468284451"
+        },
+        {
+          "id": "2035776657001431182",
+          "text": "/autoplan just dropped on https://t.co/VPvWDzV5c0 \n\nIt's v0.10 https://t.co/0xZj2aCCqj",
+          "createdAt": "2026-03-22T17:52:32.000Z",
+          "url": "https://x.com/garrytan/status/2035776657001431182",
+          "likes": 35,
+          "retweets": 1,
+          "replies": 2,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Matt Turck",
+      "handle": "mattturck",
+      "bio": "VC at @FirstMarkCap.  Host: MAD Podcast; Organizer: Data Driven NYC, Author: MAD Landscape.",
+      "tweets": [
+        {
+          "id": "2035751244325662798",
+          "text": "some of the best career advice you’ll hear https://t.co/g98jhNFLG8",
+          "createdAt": "2026-03-22T16:11:33.000Z",
+          "url": "https://x.com/mattturck/status/2035751244325662798",
+          "likes": 18,
+          "retweets": 1,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2035458987940880466",
+          "text": "LinkedIn launched in 2003\n\nYouTube launched in 2005 \n\nTwitter/X launched in 2006 \n\n(Facebook 2004, Insta 2010, Snap 2011 etc)\n\nNetwork effects create massive long term staying power.  \n\nUnclear yet if the AI era can build its own strong flywheels (data loops etc) https://t.co/4BZbL2eFWY",
+          "createdAt": "2026-03-21T20:50:14.000Z",
+          "url": "https://x.com/mattturck/status/2035458987940880466",
+          "likes": 53,
+          "retweets": 3,
+          "replies": 16,
+          "isQuote": true,
+          "quotedTweetId": "20"
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Zara Zhang",
+      "handle": "zarazhangrui",
+      "bio": "Builder. Dangerously skips permissions. Harvard’17. YouTube: https://t.co/8xzbGWtf6w Substack: https://t.co/dDPEWGiuBW",
+      "tweets": [
+        {
+          "id": "2035758067116359902",
+          "text": "https://t.co/JRzfzDanIw",
+          "createdAt": "2026-03-22T16:38:40.000Z",
+          "url": "https://x.com/zarazhangrui/status/2035758067116359902",
+          "likes": 113,
+          "retweets": 5,
+          "replies": 20,
+          "isQuote": false,
+          "quotedTweetId": null
+        },
+        {
+          "id": "2035555143215886841",
+          "text": "We need to touch grass and read books",
+          "createdAt": "2026-03-22T03:12:19.000Z",
+          "url": "https://x.com/zarazhangrui/status/2035555143215886841",
+          "likes": 53,
+          "retweets": 1,
+          "replies": 5,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Nikunj Kothari",
+      "handle": "nikunj",
+      "bio": "partner @fpvventures - investing in seed/A. previous: early hire @meter, @opendoor, @atlassian & others. love @shimoleejhaveri + 👦👧",
+      "tweets": [
+        {
+          "id": "2035764531587342813",
+          "text": "Even better day to watch airplanes https://t.co/DPTD5jKQRt",
+          "createdAt": "2026-03-22T17:04:21.000Z",
+          "url": "https://x.com/nikunj/status/2035764531587342813",
+          "likes": 3,
+          "retweets": 0,
+          "replies": 0,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Dan Shipper",
+      "handle": "danshipper",
+      "bio": "ceo @every | the only subscription you need to stay at the edge of AI",
+      "tweets": [
+        {
+          "id": "2035734115324944737",
+          "text": "i think it's great to have Claude or other coding agents listed as a developer on PRs—and i think this will get more common with OpenClaws that develop their own personality and perspective.\n\nwe also do this with writing @every, listing Claude and our Claws as co-writers: https://t.co/0DTAIGq5Ql",
+          "createdAt": "2026-03-22T15:03:29.000Z",
+          "url": "https://x.com/danshipper/status/2035734115324944737",
+          "likes": 42,
+          "retweets": 0,
+          "replies": 11,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "MiniMax",
+      "handle": "MiniMax_AI",
+      "bio": "Agent: @MiniMaxAgent Token Plan: https://t.co/BDCycxepZw API: https://t.co/fHRdSV7BwZ Discord: https://t.co/uYnFNkYh7y",
+      "tweets": [
+        {
+          "id": "2035747322286723099",
+          "text": "Sure we will https://t.co/FYlhHLHs0l",
+          "createdAt": "2026-03-22T15:55:58.000Z",
+          "url": "https://x.com/MiniMax_AI/status/2035747322286723099",
+          "likes": 281,
+          "retweets": 6,
+          "replies": 9,
+          "isQuote": true,
+          "quotedTweetId": "2035713902714171583"
+        },
+        {
+          "id": "2035609361826111780",
+          "text": "Our official skills repo is open source: https://t.co/X3yOgU0tRd\n\nEquip your agents with curated skills for iOS and Android development, Office file editing, and visual effects with GLSL shaders.\n\nThere are more open source projects coming!",
+          "createdAt": "2026-03-22T06:47:46.000Z",
+          "url": "https://x.com/MiniMax_AI/status/2035609361826111780",
+          "likes": 2161,
+          "retweets": 286,
+          "replies": 51,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Nous Research",
+      "handle": "NousResearch",
+      "bio": "World-class open source models\nhttps://t.co/vrD0aDIGDQ",
+      "tweets": [
+        {
+          "id": "2035731810836205671",
+          "text": "Hermes Agent is our most adopted open source project yet, and today has officially hit 10,000 stars on GitHub!\n\nGithub repo: https://t.co/b9NrmplHjC\n\nMany exciting updates to come, stay tuned! https://t.co/jYQCISkM6k",
+          "createdAt": "2026-03-22T14:54:20.000Z",
+          "url": "https://x.com/NousResearch/status/2035731810836205671",
+          "likes": 800,
+          "retweets": 51,
+          "replies": 56,
+          "isQuote": false,
+          "quotedTweetId": null
+        }
+      ]
+    },
+    {
+      "source": "x",
+      "name": "Deedy Das",
+      "handle": "deedydas",
+      "bio": "Partner @MenloVentures. Formerly founding team @glean, @google Search. @cornell CS. Investor @AnthropicAI, @GoodfireAI, @OpenRouter, @WisprFlow, @_inception_ai",
+      "tweets": [
+        {
+          "id": "2035644394783854873",
+          "text": "Bill Gurley’s article doesn’t conclude “paid marketing bad”, just “be very careful”.\n\nBig outcomes have clearly come from paid marketing: Monday, Grammarly, Squarespace.\n\nHe himself concludes that it “has a very important place in business… that requires.. thoroughness in its implementation”\n\nHis 10 points on the pitfalls of CAC/LTV math (all true) boil down to:\n- Organic channels are better economics with better user: social, virality and PR\n- If you can’t track which customers came from LTV, you over count all new customers which you would’ve acquired anyway. Your equation is just wrong.\n- Current LTV math does not hold in the future as you scale. Costs scale as the business scales. You might acquire worse customers who churn quicker. Raising ARPU can cause churn. Companies use dirty tactics to prevent churn (increase LTV) and you can see ensuing complaints in the BBB\n- Spending it better on the customer to improve the experience and increase organic growth can be way better for long term business (eg Amazon)\n- You have to keep running the treadmill to grow and if your balance sheet can’t hold it, your business slows down and the valuation dips from peak (thankfully instruments like GC’s CVF addresses this and many other points here)",
+          "createdAt": "2026-03-22T09:06:58.000Z",
+          "url": "https://x.com/deedydas/status/2035644394783854873",
+          "likes": 300,
+          "retweets": 27,
+          "replies": 15,
+          "isQuote": true,
+          "quotedTweetId": "2035541014069612952"
+        },
+        {
+          "id": "2035604198486852022",
+          "text": "@navvye @parimarjan This was v0: https://t.co/8F2nTiqqEB",
+          "createdAt": "2026-03-22T06:27:15.000Z",
+          "url": "https://x.com/deedydas/status/2035604198486852022",
+          "likes": 21,
+          "retweets": 1,
+          "replies": 3,
+          "isQuote": true,
+          "quotedTweetId": "2034681723125223882"
+        },
+        {
+          "id": "2035603496918257927",
+          "text": "Thanks @navvye for offering to test it (he was #28 in India and 23-2400 at some point and @parimarjan one of the goats for being my chess hero growing up and offering to give it a go",
+          "createdAt": "2026-03-22T06:24:28.000Z",
+          "url": "https://x.com/deedydas/status/2035603496918257927",
+          "likes": 25,
+          "retweets": 1,
+          "replies": 2,
           "isQuote": false,
           "quotedTweetId": null
         }
@@ -34,7 +364,7 @@
     }
   ],
   "stats": {
-    "xBuilders": 1,
-    "totalTweets": 2
+    "xBuilders": 12,
+    "totalTweets": 24
   }
 }
