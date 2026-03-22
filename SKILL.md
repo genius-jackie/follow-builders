@@ -10,8 +10,8 @@ description: AI builders digest — monitors top AI builders on X and YouTube po
 
 ## Schedule & Time Window
 
-- **Feed generation:** 7:00 AM PT daily (GitHub Actions cron)
-- **Digest delivery:** 7:15 AM PT (OpenClaw cron triggers you)
+- **Feed generation:** 6:45 AM PT daily (GitHub Actions cron)
+- **Digest delivery:** 7:00 AM PT (OpenClaw cron triggers you)
 - **Time window:** Yesterday 7am PT → Today 7am PT (24h lookback)
 
 ## Feed Source
