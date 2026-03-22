@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
 // ============================================================================
-// Merge upstream feed with local extras
+// Merge upstream feed with local extras (with deduplication)
 // ============================================================================
 // 1. Downloads Zara's upstream feed-x.json and feed-podcasts.json
 // 2. Reads the locally-generated feed-x.json (extras only)
 // 3. Merges them into the final feed-x.json
-// 4. Uses upstream feed-podcasts.json as-is (same sources)
+// 4. Filters out tweets that were already shown (using state-feed.json)
+// 5. Updates state-feed.json with new tweet IDs
+// 6. Uses upstream feed-podcasts.json as-is (same sources)
 // ============================================================================
 
 import { readFile, writeFile } from 'fs/promises';
@@ -45,12 +47,49 @@ async function main() {
     console.error('  No extras feed found, using upstream only');
   }
 
-  // 3. Merge: upstream accounts + extra accounts (no duplicates)
+  // 3. Read state to filter out already-seen tweets
+  const statePath = join(REPO_ROOT, 'state-feed.json');
+  let state = { seenTweets: {}, seenVideos: {} };
+  if (existsSync(statePath)) {
+    state = JSON.parse(await readFile(statePath, 'utf-8'));
+  }
+  const seenTweetIds = new Set(Object.keys(state.seenTweets || {}));
+  console.error(`  State: ${seenTweetIds.size} seen tweets`);
+
+  // 4. Merge: upstream accounts + extra accounts (no duplicates)
   const upstreamHandles = new Set((upstreamX.x || []).map(b => b.handle.toLowerCase()));
   const uniqueExtras = (extrasX.x || []).filter(b => !upstreamHandles.has(b.handle.toLowerCase()));
 
-  const mergedX = [...(upstreamX.x || []), ...uniqueExtras];
+  const allBuilders = [...(upstreamX.x || []), ...uniqueExtras];
+
+  // 5. Filter out already-seen tweets and record new ones
+  const now = Date.now();
+  let newTweetCount = 0;
+  let filteredTweetCount = 0;
+
+  for (const builder of allBuilders) {
+    const originalCount = builder.tweets?.length || 0;
+    builder.tweets = (builder.tweets || []).filter(tweet => {
+      if (seenTweetIds.has(tweet.id)) {
+        filteredTweetCount++;
+        return false;
+      }
+      // Record this tweet as seen
+      state.seenTweets[tweet.id] = now;
+      newTweetCount++;
+      return true;
+    });
+    
+    if (builder.tweets.length === 0 && originalCount > 0) {
+      console.error(`  [DEDUP] ${builder.name} (@${builder.handle}): filtered out ${originalCount} duplicate tweet(s)`);
+    }
+  }
+
+  // Remove builders with no tweets
+  const mergedX = allBuilders.filter(b => b.tweets && b.tweets.length > 0);
   const totalTweets = mergedX.reduce((sum, b) => sum + (b.tweets?.length || 0), 0);
+
+  console.error(`  Dedup: ${newTweetCount} new, ${filteredTweetCount} filtered (duplicates)`);
 
   const mergedFeed = {
     generatedAt: new Date().toISOString(),
@@ -59,11 +98,15 @@ async function main() {
     stats: { xBuilders: mergedX.length, totalTweets }
   };
 
-  // 4. Write merged feed-x.json
+  // 6. Write merged feed-x.json
   await writeFile(join(REPO_ROOT, 'feed-x.json'), JSON.stringify(mergedFeed, null, 2));
   console.error(`  Merged: ${mergedX.length} builders, ${totalTweets} tweets`);
 
-  // 5. Use upstream podcasts as-is
+  // 7. Write updated state
+  await writeFile(statePath, JSON.stringify(state, null, 2));
+  console.error(`  State updated: ${Object.keys(state.seenTweets).length} total seen tweets`);
+
+  // 8. Use upstream podcasts as-is
   await writeFile(join(REPO_ROOT, 'feed-podcasts.json'), JSON.stringify(upstreamPodcasts, null, 2));
   console.error(`  Podcasts: ${upstreamPodcasts.podcasts?.length || 0} episodes (from upstream)`);
 }
