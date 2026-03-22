@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: cd scripts && npm install
 
-      - name: Fetch extra accounts (11 accounts not in upstream)
+      - name: Fetch extra accounts (not in upstream)
         env:
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
         run: |
