@@ -2,8 +2,8 @@ name: Generate Feeds
 
 on:
   schedule:
-    # Run daily at 7am UTC (midnight PT) — after Zara's upstream runs at 6am UTC
-    - cron: '0 7 * * *'
+    # Run daily at 3pm UTC (7 AM PT) — Lily wakes up ~8 AM PT
+    - cron: '0 15 * * *'
   workflow_dispatch:
 
 jobs:
@@ -22,14 +22,33 @@ jobs:
       - name: Install dependencies
         run: cd scripts && npm install
 
-      - name: Fetch extra accounts (not in upstream)
+      - name: Fetch all accounts (default + extras)
+        env:
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+          SUPADATA_API_KEY: ${{ secrets.SUPADATA_API_KEY }}
+        run: |
+          cd scripts && node generate-feed.js
+
+      - name: Fetch extra accounts
         env:
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
         run: |
           cd scripts && node generate-feed.js --tweets-only --sources ../config/extra-sources.json --output ../feed-x-extras.json
 
-      - name: Merge upstream + extras
-        run: cd scripts && node merge-upstream.js
+      - name: Merge extras into main feed
+        run: |
+          cd scripts && node -e "
+          const fs = require('fs');
+          const main = JSON.parse(fs.readFileSync('../feed-x.json', 'utf-8'));
+          const extras = JSON.parse(fs.readFileSync('../feed-x-extras.json', 'utf-8'));
+          const mainHandles = new Set(main.x.map(b => b.handle.toLowerCase()));
+          const unique = extras.x.filter(b => !mainHandles.has(b.handle.toLowerCase()));
+          main.x.push(...unique);
+          main.stats.xBuilders = main.x.length;
+          main.stats.totalTweets = main.x.reduce((s, b) => s + (b.tweets?.length || 0), 0);
+          fs.writeFileSync('../feed-x.json', JSON.stringify(main, null, 2));
+          console.error('Merged: ' + unique.length + ' extra builders added');
+          "
 
       - name: Commit and push feeds
         run: |
