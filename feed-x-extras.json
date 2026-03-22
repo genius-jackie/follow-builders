@@ -1,56 +1,7 @@
 {
-  "generatedAt": "2026-03-22T17:27:57.622Z",
+  "generatedAt": "2026-03-22T17:28:35.097Z",
   "lookbackHours": 24,
   "x": [
-    {
-      "source": "x",
-      "name": "MiniMax",
-      "handle": "MiniMax_AI",
-      "bio": "Agent: @MiniMaxAgent Token Plan: https://t.co/BDCycxepZw API: https://t.co/fHRdSV7BwZ Discord: https://t.co/uYnFNkYh7y",
-      "tweets": [
-        {
-          "id": "2035747322286723099",
-          "text": "Sure we will https://t.co/FYlhHLHs0l",
-          "createdAt": "2026-03-22T15:55:58.000Z",
-          "url": "https://x.com/MiniMax_AI/status/2035747322286723099",
-          "likes": 189,
-          "retweets": 4,
-          "replies": 9,
-          "isQuote": true,
-          "quotedTweetId": "2035713902714171583"
-        },
-        {
-          "id": "2035609361826111780",
-          "text": "Our official skills repo is open source: https://t.co/X3yOgU0tRd\n\nEquip your agents with curated skills for iOS and Android development, Office file editing, and visual effects with GLSL shaders.\n\nThere are more open source projects coming!",
-          "createdAt": "2026-03-22T06:47:46.000Z",
-          "url": "https://x.com/MiniMax_AI/status/2035609361826111780",
-          "likes": 2070,
-          "retweets": 275,
-          "replies": 48,
-          "isQuote": false,
-          "quotedTweetId": null
-        }
-      ]
-    },
-    {
-      "source": "x",
-      "name": "Nous Research",
-      "handle": "NousResearch",
-      "bio": "World-class open source models\nhttps://t.co/vrD0aDIGDQ",
-      "tweets": [
-        {
-          "id": "2035731810836205671",
-          "text": "Hermes Agent is our most adopted open source project yet, and today has officially hit 10,000 stars on GitHub!\n\nGithub repo: https://t.co/b9NrmplHjC\n\nMany exciting updates to come, stay tuned! https://t.co/jYQCISkM6k",
-          "createdAt": "2026-03-22T14:54:20.000Z",
-          "url": "https://x.com/NousResearch/status/2035731810836205671",
-          "likes": 656,
-          "retweets": 44,
-          "replies": 55,
-          "isQuote": false,
-          "quotedTweetId": null
-        }
-      ]
-    },
     {
       "source": "x",
       "name": "Deedy Das",
@@ -58,35 +9,24 @@
       "bio": "Partner @MenloVentures. Formerly founding team @glean, @google Search. @cornell CS. Investor @AnthropicAI, @GoodfireAI, @OpenRouter, @WisprFlow, @_inception_ai",
       "tweets": [
         {
-          "id": "2035644394783854873",
-          "text": "Bill Gurley’s article doesn’t conclude “paid marketing bad”, just “be very careful”.\n\nBig outcomes have clearly come from paid marketing: Monday, Grammarly, Squarespace.\n\nHe himself concludes that it “has a very important place in business… that requires.. thoroughness in its implementation”\n\nHis 10 points on the pitfalls of CAC/LTV math (all true) boil down to:\n- Organic channels are better economics with better user: social, virality and PR\n- If you can’t track which customers came from LTV, you over count all new customers which you would’ve acquired anyway. Your equation is just wrong.\n- Current LTV math does not hold in the future as you scale. Costs scale as the business scales. You might acquire worse customers who churn quicker. Raising ARPU can cause churn. Companies use dirty tactics to prevent churn (increase LTV) and you can see ensuing complaints in the BBB\n- Spending it better on the customer to improve the experience and increase organic growth can be way better for long term business (eg Amazon)\n- You have to keep running the treadmill to grow and if your balance sheet can’t hold it, your business slows down and the valuation dips from peak (thankfully instruments like GC’s CVF addresses this and many other points here)",
-          "createdAt": "2026-03-22T09:06:58.000Z",
-          "url": "https://x.com/deedydas/status/2035644394783854873",
-          "likes": 248,
-          "retweets": 23,
-          "replies": 15,
-          "isQuote": true,
-          "quotedTweetId": "2035541014069612952"
+          "id": "2035551101148414322",
+          "text": "This approach fundamentally uses a negamax alpha-beta tree search with pruning and iterative deepening. I tested everything with a 500ms per move limit. The main way to improve it would be to get rid of the static evaluation at the nodes and replace it with efficiently updatable neural nets (NNUEs). Also uses standard opening books and a transposition table to cache moves.\n\nThere's no offline computation or training element, so each run is like the last.\n\nLichess bot link: https://t.co/PZUs79d2qT\nGithub repo: https://t.co/ILWdBPrqOQ\nChess AI ranking (CCRL): https://t.co/mXT1DMrFPZ\nBayesian ELO:\nhttps://t.co/de0gmIIAFN\nStash measurement: https://t.co/SrcupxEUn1",
+          "createdAt": "2026-03-22T02:56:15.000Z",
+          "url": "https://x.com/deedydas/status/2035551101148414322",
+          "likes": 81,
+          "retweets": 6,
+          "replies": 3,
+          "isQuote": false,
+          "quotedTweetId": null
         },
         {
-          "id": "2035604198486852022",
-          "text": "@navvye @parimarjan This was v0: https://t.co/8F2nTiqqEB",
-          "createdAt": "2026-03-22T06:27:15.000Z",
-          "url": "https://x.com/deedydas/status/2035604198486852022",
-          "likes": 18,
-          "retweets": 1,
-          "replies": 2,
-          "isQuote": true,
-          "quotedTweetId": "2034681723125223882"
-        },
-        {
-          "id": "2035603496918257927",
-          "text": "Thanks @navvye for offering to test it (he was #28 in India and 23-2400 at some point and @parimarjan one of the goats for being my chess hero growing up and offering to give it a go",
-          "createdAt": "2026-03-22T06:24:28.000Z",
-          "url": "https://x.com/deedydas/status/2035603496918257927",
-          "likes": 20,
-          "retweets": 1,
-          "replies": 2,
+          "id": "2035551089265906051",
+          "text": "Karpathy's Autoresearch pushed my vibecoded Rust chess engine AI from \"expert\" to a top 50 grandmaster, a #311 chess engine.\n\nIt ran over 70 experiments on its own and tried to hill climb to the top ELO score it could, landing at 2718! https://t.co/PmsldNe4tc",
+          "createdAt": "2026-03-22T02:56:13.000Z",
+          "url": "https://x.com/deedydas/status/2035551089265906051",
+          "likes": 2295,
+          "retweets": 150,
+          "replies": 74,
           "isQuote": false,
           "quotedTweetId": null
         }
@@ -94,7 +34,7 @@
     }
   ],
   "stats": {
-    "xBuilders": 3,
-    "totalTweets": 6
+    "xBuilders": 1,
+    "totalTweets": 2
   }
 }
