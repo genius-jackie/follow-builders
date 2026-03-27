@@ -1,51 +1,21 @@
 {
-  "generatedAt": "2026-03-26T14:16:03.122Z",
+  "generatedAt": "2026-03-27T14:12:29.387Z",
   "lookbackHours": 24,
   "x": [
     {
       "source": "x",
-      "name": "MiniMax",
-      "handle": "MiniMax_AI",
-      "bio": "Agent: @MiniMaxAgent Token Plan: https://t.co/BDCycxepZw API: https://t.co/fHRdSV7BwZ Discord: https://t.co/uYnFNkYh7y",
+      "name": "Deedy Das",
+      "handle": "deedydas",
+      "bio": "Partner @MenloVentures. Formerly founding team @glean, @google Search. @cornell CS. Investor @AnthropicAI, @GoodfireAI, @OpenRouter, @WisprFlow, @_inception_ai",
       "tweets": [
         {
-          "id": "2036816684183634192",
-          "text": "Show me👀 https://t.co/w7yOvKXfaL",
-          "createdAt": "2026-03-25T14:45:14.000Z",
-          "url": "https://x.com/MiniMax_AI/status/2036816684183634192",
-          "likes": 89,
-          "retweets": 1,
-          "replies": 4,
-          "isQuote": true,
-          "quotedTweetId": "2036787525537468669"
-        }
-      ]
-    },
-    {
-      "source": "x",
-      "name": "Modal",
-      "handle": "modal",
-      "bio": "AI infrastructure that developers love 💚\n\nRun inference, sandboxes, batch processing, training, and many other things on Modal",
-      "tweets": [
-        {
-          "id": "2036875167456973050",
-          "text": "Read the full post: https://t.co/G9B9n60bb0",
-          "createdAt": "2026-03-25T18:37:37.000Z",
-          "url": "https://x.com/modal/status/2036875167456973050",
-          "likes": 2,
-          "retweets": 1,
-          "replies": 0,
-          "isQuote": false,
-          "quotedTweetId": null
-        },
-        {
-          "id": "2036875166035095694",
-          "text": "The team at @DoppelHQ wrote about moving their inference and training workloads to Modal, leading to:\n\n- Parallelized experimentation\n- 10x faster image builds\n- Lower operational overhead https://t.co/Mp21X3I8rm",
-          "createdAt": "2026-03-25T18:37:37.000Z",
-          "url": "https://x.com/modal/status/2036875166035095694",
-          "likes": 34,
-          "retweets": 4,
-          "replies": 1,
+          "id": "2037363765600215531",
+          "text": "I sat down with Sam Altman (@sama) and Francois Chollet (@fchollet) at the ARC-AGI-3 launch to talk about:\n– how to raise kids in this new world\n– “spud” / Sora\n– what they’re bullish on and not \n– research we need more of\n– AGI timelines\nand more. \n\nVideo dropping soon. https://t.co/IeJixB4RQZ",
+          "createdAt": "2026-03-27T02:59:08.000Z",
+          "url": "https://x.com/deedydas/status/2037363765600215531",
+          "likes": 570,
+          "retweets": 20,
+          "replies": 31,
           "isQuote": false,
           "quotedTweetId": null
         }
@@ -53,7 +23,7 @@
     }
   ],
   "stats": {
-    "xBuilders": 2,
-    "totalTweets": 3
+    "xBuilders": 1,
+    "totalTweets": 1
   }
 }
